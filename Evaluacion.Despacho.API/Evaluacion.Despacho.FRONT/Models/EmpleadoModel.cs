@@ -1,10 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
-namespace Evaluacion.Despacho.COMMON.DTO
+namespace Evaluacion.Despacho.FRONT.Models
 {
     public class EmpleadoModel
     {
@@ -12,13 +11,7 @@ namespace Evaluacion.Despacho.COMMON.DTO
         public string Nombre { get; set; }
         public string ApellidoPaterno { get; set; }
         public string ApellidoMaterno { get; set; }
-        public string NombreCompleto 
-        { 
-            get 
-            {
-                return $"{Nombre} {ApellidoPaterno} {ApellidoMaterno}";
-            } 
-        }
+        public string NombreCompleto { get; set; }
         public DateTime FechaNacimiento { get; set; }
         public string Rfc { get; set; }
         public string Direccion { get; set; }
