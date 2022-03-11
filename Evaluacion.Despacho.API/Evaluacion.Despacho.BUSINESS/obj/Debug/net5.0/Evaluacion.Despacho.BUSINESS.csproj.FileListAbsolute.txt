@@ -1,0 +1,17 @@
+D:\GIT\TEST\ExamenTecnico\Evaluacion.Despacho.API\Evaluacion.Despacho.BUSINESS\bin\Debug\net5.0\Evaluacion.Despacho.BUSINESS.deps.json
+D:\GIT\TEST\ExamenTecnico\Evaluacion.Despacho.API\Evaluacion.Despacho.BUSINESS\bin\Debug\net5.0\Evaluacion.Despacho.BUSINESS.dll
+D:\GIT\TEST\ExamenTecnico\Evaluacion.Despacho.API\Evaluacion.Despacho.BUSINESS\bin\Debug\net5.0\ref\Evaluacion.Despacho.BUSINESS.dll
+D:\GIT\TEST\ExamenTecnico\Evaluacion.Despacho.API\Evaluacion.Despacho.BUSINESS\bin\Debug\net5.0\Evaluacion.Despacho.BUSINESS.pdb
+D:\GIT\TEST\ExamenTecnico\Evaluacion.Despacho.API\Evaluacion.Despacho.BUSINESS\bin\Debug\net5.0\Evaluacion.Despacho.DATA.dll
+D:\GIT\TEST\ExamenTecnico\Evaluacion.Despacho.API\Evaluacion.Despacho.BUSINESS\bin\Debug\net5.0\Evaluacion.Despacho.DATA.pdb
+D:\GIT\TEST\ExamenTecnico\Evaluacion.Despacho.API\Evaluacion.Despacho.BUSINESS\obj\Debug\net5.0\Evaluacion.Despacho.BUSINESS.csproj.AssemblyReference.cache
+D:\GIT\TEST\ExamenTecnico\Evaluacion.Despacho.API\Evaluacion.Despacho.BUSINESS\obj\Debug\net5.0\Evaluacion.Despacho.BUSINESS.GeneratedMSBuildEditorConfig.editorconfig
+D:\GIT\TEST\ExamenTecnico\Evaluacion.Despacho.API\Evaluacion.Despacho.BUSINESS\obj\Debug\net5.0\Evaluacion.Despacho.BUSINESS.AssemblyInfoInputs.cache
+D:\GIT\TEST\ExamenTecnico\Evaluacion.Despacho.API\Evaluacion.Despacho.BUSINESS\obj\Debug\net5.0\Evaluacion.Despacho.BUSINESS.AssemblyInfo.cs
+D:\GIT\TEST\ExamenTecnico\Evaluacion.Despacho.API\Evaluacion.Despacho.BUSINESS\obj\Debug\net5.0\Evaluacion.Despacho.BUSINESS.csproj.CoreCompileInputs.cache
+D:\GIT\TEST\ExamenTecnico\Evaluacion.Despacho.API\Evaluacion.Despacho.BUSINESS\obj\Debug\net5.0\Evaluacion.Despacho.BUSINESS.csproj.CopyComplete
+D:\GIT\TEST\ExamenTecnico\Evaluacion.Despacho.API\Evaluacion.Despacho.BUSINESS\obj\Debug\net5.0\Evaluacion.Despacho.BUSINESS.dll
+D:\GIT\TEST\ExamenTecnico\Evaluacion.Despacho.API\Evaluacion.Despacho.BUSINESS\obj\Debug\net5.0\ref\Evaluacion.Despacho.BUSINESS.dll
+D:\GIT\TEST\ExamenTecnico\Evaluacion.Despacho.API\Evaluacion.Despacho.BUSINESS\obj\Debug\net5.0\Evaluacion.Despacho.BUSINESS.pdb
+D:\GIT\TEST\ExamenTecnico\Evaluacion.Despacho.API\Evaluacion.Despacho.BUSINESS\bin\Debug\net5.0\Evaluacion.Despacho.COMMON.dll
+D:\GIT\TEST\ExamenTecnico\Evaluacion.Despacho.API\Evaluacion.Despacho.BUSINESS\bin\Debug\net5.0\Evaluacion.Despacho.COMMON.pdb
