@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "G2fJtEq8mFIYrAAWgJevcrMpgkjel87wyDGBYClpc3HHz9aAIrotG0V0ZgnyYBT86UXOXfKWUj9HVJf7OtqMig==",
+  "dgSpecHash": "Y87mBpoyEajHYMr+Z87B5xIocnjGMVxcyRNh2cYTEBpv6ia6CkKKipC8Ah0W5dEqGA9FjU7wgiAOFdsgmemW2A==",
   "success": true,
-  "projectFilePath": "D:\\GIT\\TEST\\ExamenTecnico\\Evaluacion.Despacho.API\\Evaluacion.Despacho.API\\Evaluacion.Despacho.API.csproj",
+  "projectFilePath": "D:\\GIT\\TEST\\ExamenTecnico\\Evaluacion\\Evaluacion.Despacho.API\\Evaluacion.Despacho.API\\Evaluacion.Despacho.API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\admin\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\admin\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",

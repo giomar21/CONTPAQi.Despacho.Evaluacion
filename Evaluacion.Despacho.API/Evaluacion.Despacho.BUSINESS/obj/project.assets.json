@@ -5771,11 +5771,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\GIT\\TEST\\ExamenTecnico\\Evaluacion.Despacho.API\\Evaluacion.Despacho.BUSINESS\\Evaluacion.Despacho.BUSINESS.csproj",
+      "projectUniqueName": "D:\\GIT\\TEST\\ExamenTecnico\\Evaluacion\\Evaluacion.Despacho.API\\Evaluacion.Despacho.BUSINESS\\Evaluacion.Despacho.BUSINESS.csproj",
       "projectName": "Evaluacion.Despacho.BUSINESS",
-      "projectPath": "D:\\GIT\\TEST\\ExamenTecnico\\Evaluacion.Despacho.API\\Evaluacion.Despacho.BUSINESS\\Evaluacion.Despacho.BUSINESS.csproj",
+      "projectPath": "D:\\GIT\\TEST\\ExamenTecnico\\Evaluacion\\Evaluacion.Despacho.API\\Evaluacion.Despacho.BUSINESS\\Evaluacion.Despacho.BUSINESS.csproj",
       "packagesPath": "C:\\Users\\admin\\.nuget\\packages\\",
-      "outputPath": "D:\\GIT\\TEST\\ExamenTecnico\\Evaluacion.Despacho.API\\Evaluacion.Despacho.BUSINESS\\obj\\",
+      "outputPath": "D:\\GIT\\TEST\\ExamenTecnico\\Evaluacion\\Evaluacion.Despacho.API\\Evaluacion.Despacho.BUSINESS\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -5796,8 +5796,8 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "D:\\GIT\\TEST\\ExamenTecnico\\Evaluacion.Despacho.API\\Evaluacion.Despacho.DATA\\Evaluacion.Despacho.DATA.csproj": {
-              "projectPath": "D:\\GIT\\TEST\\ExamenTecnico\\Evaluacion.Despacho.API\\Evaluacion.Despacho.DATA\\Evaluacion.Despacho.DATA.csproj"
+            "D:\\GIT\\TEST\\ExamenTecnico\\Evaluacion\\Evaluacion.Despacho.API\\Evaluacion.Despacho.DATA\\Evaluacion.Despacho.DATA.csproj": {
+              "projectPath": "D:\\GIT\\TEST\\ExamenTecnico\\Evaluacion\\Evaluacion.Despacho.API\\Evaluacion.Despacho.DATA\\Evaluacion.Despacho.DATA.csproj"
             }
           }
         }

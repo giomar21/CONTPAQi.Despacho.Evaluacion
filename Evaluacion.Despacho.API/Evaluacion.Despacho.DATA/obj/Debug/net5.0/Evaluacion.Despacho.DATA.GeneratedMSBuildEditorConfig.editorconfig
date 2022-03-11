@@ -7,4 +7,4 @@ build_property.PublishSingleFile =
 build_property.IncludeAllContentForSelfExtract = 
 build_property._SupportedPlatformList = Android,iOS,Linux,macOS,Windows
 build_property.RootNamespace = Evaluacion.Despacho.DATA
-build_property.ProjectDir = D:\GIT\TEST\ExamenTecnico\Evaluacion.Despacho.API\Evaluacion.Despacho.DATA\
+build_property.ProjectDir = D:\GIT\TEST\ExamenTecnico\Evaluacion\Evaluacion.Despacho.API\Evaluacion.Despacho.DATA\

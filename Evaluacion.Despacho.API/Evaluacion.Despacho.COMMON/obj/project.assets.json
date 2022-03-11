@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\GIT\\TEST\\ExamenTecnico\\Evaluacion.Despacho.API\\Evaluacion.Despacho.COMMON\\Evaluacion.Despacho.COMMON.csproj",
+      "projectUniqueName": "D:\\GIT\\TEST\\ExamenTecnico\\Evaluacion\\Evaluacion.Despacho.API\\Evaluacion.Despacho.COMMON\\Evaluacion.Despacho.COMMON.csproj",
       "projectName": "Evaluacion.Despacho.COMMON",
-      "projectPath": "D:\\GIT\\TEST\\ExamenTecnico\\Evaluacion.Despacho.API\\Evaluacion.Despacho.COMMON\\Evaluacion.Despacho.COMMON.csproj",
+      "projectPath": "D:\\GIT\\TEST\\ExamenTecnico\\Evaluacion\\Evaluacion.Despacho.API\\Evaluacion.Despacho.COMMON\\Evaluacion.Despacho.COMMON.csproj",
       "packagesPath": "C:\\Users\\admin\\.nuget\\packages\\",
-      "outputPath": "D:\\GIT\\TEST\\ExamenTecnico\\Evaluacion.Despacho.API\\Evaluacion.Despacho.COMMON\\obj\\",
+      "outputPath": "D:\\GIT\\TEST\\ExamenTecnico\\Evaluacion\\Evaluacion.Despacho.API\\Evaluacion.Despacho.COMMON\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
