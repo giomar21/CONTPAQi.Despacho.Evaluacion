@@ -38,7 +38,9 @@ namespace Evaluacion.Despacho.FRONT.Controllers
         {
             var rEmpleados = new ResponseEmpleadoModel();
 
-            rEmpleados = await GetEmpleados(pagina);
+            var filtro = new EmpleadoFiltro() { NumPagina = pagina, Estatus = true };
+
+            rEmpleados = await GetEmpleados(filtro);
 
             return View(rEmpleados);
         }
@@ -49,17 +51,31 @@ namespace Evaluacion.Despacho.FRONT.Controllers
             //{
             //    return View(empleado);
             //}
+            var filtro = new EmpleadoFiltro() { NumPagina = 1, Estatus = true };
 
             await _empleadoService.Create(empleado);
 
-            var rEmpleados = await GetEmpleados(1);
+            var rEmpleados = await GetEmpleados(filtro);
+
+            return View("Index", rEmpleados);
+        }
+
+        public async Task<IActionResult> Delete(EmpleadoModel empleado)
+        {
+            var filtro = new EmpleadoFiltro() { NumPagina = 1, Estatus = true };
+
+            await _empleadoService.Delete(empleado.IdEmpleado);
+
+            var rEmpleados = await GetEmpleados(filtro);
 
             return View("Index", rEmpleados);
         }
 
         public async Task<IActionResult> Refresh()
         {
-            var rEmpleados = await GetEmpleados(1);
+            var filtro = new EmpleadoFiltro() { NumPagina = 1, Estatus = true };
+
+            var rEmpleados = await GetEmpleados(filtro);
 
             return View("Index", rEmpleados);
         }
@@ -67,6 +83,15 @@ namespace Evaluacion.Despacho.FRONT.Controllers
         public IActionResult Register()
         {
             return View();
+        }
+
+        public async Task<IActionResult> Search(EmpleadoFiltro filtro)
+        {
+            filtro.NumPagina = 1;
+
+            var rEmpleados = await GetEmpleados(filtro);
+
+            return View("Index", rEmpleados);
         }
 
         public IActionResult Privacy()
@@ -86,15 +111,15 @@ namespace Evaluacion.Despacho.FRONT.Controllers
             int totalPAginas = (int)Math.Ceiling(paginas);
             return totalPAginas;
         }
-        private async Task<ResponseEmpleadoModel> GetEmpleados(int pagina)
+
+        private async Task<ResponseEmpleadoModel> GetEmpleados(EmpleadoFiltro filtro)
         {
             List<PuestoModel> rPuestos = new List<PuestoModel>();
             List<GeneroModel> rGeneros = new List<GeneroModel>();
             List<EstadoCivilModel> rEstodosCiviles = new List<EstadoCivilModel>();
-
-            var filtro = new EmpleadoFiltro() { NumPagina = pagina, Estatus = true };
+            
             var rEmpleados = await _empleadoService.Get(filtro);
-            rEmpleados.PaginaActual = pagina;
+            rEmpleados.PaginaActual = filtro.NumPagina;
             rEmpleados.TotalPaginas = GetTotalPagina(rEmpleados.TotalRegistros, filtro.NumRegistros);
 
             if(!rPuestos.Any()) rPuestos = await _puestoService.Get();

@@ -10,5 +10,9 @@ namespace Evaluacion.Despacho.FRONT.Models.Interfaces
         Task<ResponseEmpleadoModel> Get(EmpleadoFiltro filtro);
 
         Task Create(EmpleadoModel empleado);
+
+        Task Update(EmpleadoModel empleado);
+
+        Task Delete(Guid idEmpleado);
     }
 }

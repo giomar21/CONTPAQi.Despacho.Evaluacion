@@ -44,5 +44,22 @@
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
+
+
+    <script type="text/javascript">
+        $("#modalCrear").submit(function (e) {
+            e.preventDefault();
+        });
+
+        $("#modalSearch").submit(function (e) {
+            e.preventDefault();
+        });
+
+        $(document).on("click", ".modalDelete", function () {
+            var passedID = $(this).data('id');
+            $(".modal-body .idEmpleado_").val(passedID);
+        });
+    </script>
+
 </body>
 </html>

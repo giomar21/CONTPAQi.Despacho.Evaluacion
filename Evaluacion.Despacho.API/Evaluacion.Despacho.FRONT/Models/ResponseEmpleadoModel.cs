@@ -9,11 +9,13 @@ namespace Evaluacion.Despacho.FRONT.Models
     {
         private List<EmpleadoModel> _empleados;
         private EmpleadoModel _model;
+        private EmpleadoFiltro _filtro;
 
         public ResponseEmpleadoModel()
         {
             this._empleados = new List<EmpleadoModel>();
             this._model = new EmpleadoModel();
+            this._filtro = new EmpleadoFiltro();
         }
 
         public List<EmpleadoModel> Empleados
@@ -43,6 +45,18 @@ namespace Evaluacion.Despacho.FRONT.Models
             set
             {
                 this._model = value;
+            }
+        }
+
+        public EmpleadoFiltro Filtro
+        {
+            get
+            {
+                return this._filtro;
+            }
+            set
+            {
+                this._filtro = value;
             }
         }
     }

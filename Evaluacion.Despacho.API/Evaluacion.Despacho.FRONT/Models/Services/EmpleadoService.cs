@@ -36,7 +36,6 @@ namespace Evaluacion.Despacho.FRONT.Models.Services
 
         public async Task Create(EmpleadoModel empleado)
         {
-
             try
             {
                 string urlBase = _configuration["URL_API"];
@@ -46,6 +45,34 @@ namespace Evaluacion.Despacho.FRONT.Models.Services
             catch
             {
                 
+            }
+        }
+
+        public async Task Update(EmpleadoModel empleado)
+        {
+            try
+            {
+                string urlBase = _configuration["URL_API"];
+                string urlConsulta = $"{urlBase}/Empleado";
+                var rRquest = await RestClientHelper.JsonRequest<object, EmpleadoModel>(empleado, urlConsulta, ContentType.JSON, HTTPMethods.Put);
+            }
+            catch
+            {
+
+            }
+        }
+
+        public async Task Delete(Guid idEmpleado)
+        {
+            try
+            {
+                string urlBase = _configuration["URL_API"];
+                string urlConsulta = $"{urlBase}/Empleado?IdEmpleado={idEmpleado}";
+                var rRquest = await RestClientHelper.JsonRequest<object, EmpleadoModel>(null, urlConsulta, ContentType.JSON, HTTPMethods.Patch);
+            }
+            catch
+            {
+
             }
         }
     }
