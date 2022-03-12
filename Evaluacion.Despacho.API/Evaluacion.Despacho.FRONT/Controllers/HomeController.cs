@@ -45,19 +45,20 @@ namespace Evaluacion.Despacho.FRONT.Controllers
             return View(rEmpleados);
         }
 
+
         public async Task<IActionResult> Crear(EmpleadoModel empleado)
         {
-            //if (!ModelState.IsValid)
-            //{
-            //    return View(empleado);
-            //}
+            if (!ModelState.IsValid)
+            {
+                return View(empleado);
+            }
             var filtro = new EmpleadoFiltro() { NumPagina = 1, Estatus = true };
 
             await _empleadoService.Create(empleado);
 
             var rEmpleados = await GetEmpleados(filtro);
 
-            return View("Index", rEmpleados);
+            return RedirectToAction("Index", rEmpleados);
         }
 
         public async Task<IActionResult> Delete(EmpleadoModel empleado)

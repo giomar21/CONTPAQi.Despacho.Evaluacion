@@ -65,7 +65,7 @@
     </tbody>
 </table>
 
-<form asp-action="Crear">
+<form asp-action="Crear" id="formCrear">
 
     <div id="modalCrear" class="modal" tabindex="-1" role="dialog">
         <div class="modal-dialog modal-xl" role="document">
@@ -92,7 +92,6 @@
                                 <label asp-for="@Model.Empleado.Nombre" class="control-label"></label>
                                 <input asp-for="@Model.Empleado.Nombre" class="form-control" />
                                 <span asp-validation-for="@Model.Empleado.Nombre" class="text-danger"></span>
-                                @Html.ValidationMessageFor(model => model.Empleado.Nombre, "", new { @class = "text-danger" })
                             </div>
                         </div>
                         <div class="col-md-6">
@@ -100,7 +99,6 @@
                                 <label asp-for="@Model.Empleado.ApellidoPaterno" class="control-label"></label>
                                 <input asp-for="@Model.Empleado.ApellidoPaterno" class="form-control" />
                                 <span asp-validation-for="@Model.Empleado.ApellidoPaterno" class="text-danger"></span>
-                                @Html.ValidationMessageFor(model => model.Empleado.ApellidoPaterno, "", new { @class = "text-danger" })
                             </div>
                         </div>
                     </div>
@@ -110,7 +108,6 @@
                                 <label asp-for="@Model.Empleado.ApellidoMaterno" class="control-label"></label>
                                 <input asp-for="@Model.Empleado.ApellidoMaterno" class="form-control" />
                                 <span asp-validation-for="@Model.Empleado.ApellidoMaterno" class="text-danger"></span>
-                                @Html.ValidationMessageFor(model => model.Empleado.ApellidoMaterno, "", new { @class = "text-danger" })
                             </div>
                         </div>
                         <div class="col-md-6">
@@ -118,7 +115,6 @@
                                 <label asp-for="@Model.Empleado.FechaNacimiento" class="control-label"></label>
                                 <input asp-for="@Model.Empleado.FechaNacimiento" class="form-control" />
                                 <span asp-validation-for="@Model.Empleado.FechaNacimiento" class="text-danger"></span>
-                                @Html.ValidationMessageFor(model => model.Empleado.FechaNacimiento, "", new { @class = "text-danger" })
                             </div>
                         </div>
                     </div>
@@ -128,7 +124,6 @@
                                 <label asp-for="@Model.Empleado.Rfc" class="control-label"></label>
                                 <input asp-for="@Model.Empleado.Rfc" class="form-control" />
                                 <span asp-validation-for="@Model.Empleado.Rfc" class="text-danger"></span>
-                                @Html.ValidationMessageFor(model => model.Empleado.Rfc, "", new { @class = "text-danger" })
                             </div>
                         </div>
                         <div class="col-md-6">
@@ -136,7 +131,6 @@
                                 <label asp-for="@Model.Empleado.Direccion" class="control-label"></label>
                                 <input asp-for="@Model.Empleado.Direccion" class="form-control" />
                                 <span asp-validation-for="@Model.Empleado.Direccion" class="text-danger"></span>
-                                @Html.ValidationMessageFor(model => model.Empleado.Direccion, "", new { @class = "text-danger" })
                             </div>
                         </div>
                     </div>
@@ -146,15 +140,13 @@
                                 <label asp-for="@Model.Empleado.Email" class="control-label"></label>
                                 <input asp-for="@Model.Empleado.Email" class="form-control" />
                                 <span asp-validation-for="@Model.Empleado.Email" class="text-danger"></span>
-                                @Html.ValidationMessageFor(model => model.Empleado.Email, "", new { @class = "text-danger" })
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label asp-for="@Model.Empleado.Telefono" class="control-label"></label>
                                 <input asp-for="@Model.Empleado.Telefono" class="form-control" />
-                                <span asp-validation-for="@Model.Empleado.Telefono" class="text-danger"></span>
-                                @Html.ValidationMessageFor(model => model.Empleado.Telefono, "", new { @class = "text-danger" })
+                                <span asp-validation-for="@Model.Empleado.Telefono" class="text-danger"></span>           
                             </div>
                         </div>
                     </div>
@@ -183,7 +175,7 @@
 
                     <div class="form-group">
 
-                        <input type="submit" value="Aceptar" class="btn btn-primary" />
+                        <input type="submit" value="Aceptar" class="btn btn-primary" id="btnCrearEmpleado" />
 
                         <input type="button" value="Cancelar" class="btn btn-danger" data-dismiss="modal" aria-label="Close">
                     </div>

@@ -41,24 +41,68 @@
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
 
 
     <script type="text/javascript">
-        $("#modalCrear").submit(function (e) {
-            e.preventDefault();
+        //$("#formCrear").submit(function (e) {
+        //    e.preventDefault();
+        //});
+
+        //$("#btnCrearEmpleado").click(function () {
+        //    $("#formCrear").submit(); // Submit the form
+        //});
+
+
+        $(document).ready(function () {
+            $('#formCrear').on('submit', function (event) {
+                event.preventDefault();
+
+                let dataEmpleado = $(this).serializeArray();
+
+                let url = "Home/Crear";
+
+                var promise = $.ajax({
+                    method: "POST",
+                    url: url,
+                    data: dataEmpleado
+                }).done(function (msg) {
+                    $('#modalCrear').modal('hide');
+                    $("#formCrear").trigger("reset");
+                }).fail(function (err, textstatus, error) {
+                    console.err("Error > ", err);
+                });
+
+                promise.then(function () {
+                    $.ajax({
+                        method: "POST",
+                        url: "Home/Refresh",
+                        data: {}
+                    }).done(function (msg) {
+                    }).fail(function (err, textstatus, error) {
+                        console.err("Error > ", err);
+                    });
+                }
+
+
+            });
         });
 
-        $("#modalSearch").submit(function (e) {
-            e.preventDefault();
-        });
+
+
+
 
         $(document).on("click", ".modalDelete", function () {
             var passedID = $(this).data('id');
             $(".modal-body .idEmpleado_").val(passedID);
         });
+
+
+
     </script>
 
 </body>
