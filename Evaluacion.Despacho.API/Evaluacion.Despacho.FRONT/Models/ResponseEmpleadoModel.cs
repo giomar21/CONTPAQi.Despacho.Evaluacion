@@ -27,5 +27,9 @@ namespace Evaluacion.Despacho.FRONT.Models
         }
 
         public int TotalRegistros { get; set; }
+
+        public int PaginaActual { get; set; }
+
+        public int TotalPaginas { get; set; }
     }
 }

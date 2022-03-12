@@ -21,9 +21,12 @@ namespace Evaluacion.Despacho.FRONT.Controllers
             _empleadoService = empleadoService;
         }
 
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(int pagina = 1)
         {
-            var rEmpleados = await _empleadoService.Get(new EmpleadoFiltro() { NumPagina =1, NumRegistros = 10, Estatus = true});
+            var filtro = new EmpleadoFiltro() { NumPagina = pagina, Estatus = true };
+            var rEmpleados = await _empleadoService.Get(filtro);
+            rEmpleados.PaginaActual = pagina;
+            rEmpleados.TotalPaginas = GetTotalPagina(rEmpleados.TotalRegistros, filtro.NumRegistros);
 
             return View(rEmpleados);
         }
@@ -37,6 +40,13 @@ namespace Evaluacion.Despacho.FRONT.Controllers
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        }
+
+        private int GetTotalPagina(int totalGlobal, int registrosPorPagina)
+        {
+            decimal paginas = Decimal.Divide(totalGlobal, registrosPorPagina);
+            int totalPAginas = (int)Math.Ceiling(paginas);
+            return totalPAginas;
         }
     }
 }

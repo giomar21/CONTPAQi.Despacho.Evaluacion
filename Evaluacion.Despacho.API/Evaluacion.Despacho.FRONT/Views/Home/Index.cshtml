@@ -1,13 +1,15 @@
 ﻿@model Evaluacion.Despacho.FRONT.Models.ResponseEmpleadoModel
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Index | Empleados";
 }
 
-<h1>Index</h1>
+<h2>Index | Empleados</h2>
+
+<br />
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <button asp-action="Create" class="btn btn-primary">Crear</button>
 </p>
 <table class="table">
     <thead>
@@ -15,7 +17,7 @@
 
             <th>
                 Nombre completo
-            </th>        
+            </th>
             <th>
                 Email
             </th>
@@ -24,7 +26,7 @@
             </th>
             <th>
                 RFC
-            </th>       
+            </th>
             <th>
                 Fecha de alta
             </th>
@@ -32,30 +34,82 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model.Empleados) {
-        <tr>        
-                @Html.HiddenFor(modelItem => item.IdEmpleado) 
-            <td>
-                @Html.DisplayFor(modelItem => item.NombreCompleto)
-            </td>        
-            <td>
-                @Html.DisplayFor(modelItem => item.Email)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Puesto.Descripcion)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Rfc)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.FechaAlta)
-            </td>           
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
-            </td>
-        </tr>
-}
+        @foreach (var item in Model.Empleados)
+        {
+            <tr>
+                @Html.HiddenFor(modelItem => item.IdEmpleado)
+                <td>
+                    @Html.DisplayFor(modelItem => item.NombreCompleto)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Puesto.Descripcion)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Rfc)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FechaAlta)
+                </td>
+                <td>
+                    <button asp-action="Update" class="btn btn-sm btn-primary">Editar</button> |
+                    <button asp-action="Delete" class="btn btn-sm btn-danger">Eliminar</button>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>
+
+@if (Model.Empleados.Count() > 0)
+{
+    <span>
+        <strong>@Model.TotalRegistros</strong> registros encontrados
+    </span>
+    <span>&nbsp;|&nbsp;</span>
+    <span>
+        Página <strong>@(Model.PaginaActual)</strong> de
+        <strong>@Model.TotalPaginas</strong>
+    </span>
+    <span>&nbsp;|&nbsp;</span>
+}
+else
+{
+    <span>No hay resultados para esta búsqueda</span>
+    <span>&nbsp;|&nbsp;</span>
+}
+
+@if (Model.PaginaActual > 1)
+{
+    @Html.ActionLink("<<", "Index", new { pagina = 1 },
+                    new { @class = "btn btn-sm btn-default" })
+    <span></span>
+    @Html.ActionLink("Anterior", "Index", new { pagina = Model.PaginaActual - 1 },
+                    new { @class = "btn btn-sm btn-default" })
+}
+else
+{
+    @Html.ActionLink("<<", "Index", new { pagina = 1 },
+                    new { @class = "btn btn-sm btn-default disabled" })
+    <span></span>
+    @Html.ActionLink("Anterior", "Index", new { pagina = 1 },
+                    new { @class = "btn btn-sm btn-default disabled" })
+}
+<span></span>
+@if (Model.PaginaActual < Model.TotalPaginas)
+{
+    @Html.ActionLink("Siguiente", "Index", new { pagina = Model.PaginaActual + 1 },
+                    new { @class = "btn btn-sm btn-default" })
+    <span></span>
+    @Html.ActionLink(">>", "Index", new { pagina = Model.TotalPaginas },
+                    new { @class = "btn btn-sm btn-default" })
+}
+else
+{
+    @Html.ActionLink("Siguiente", "Index", new { pagina = Model.TotalPaginas - 1 },
+                    new { @class = "btn btn-sm btn-default disabled" })
+    <span></span>
+    @Html.ActionLink(">>", "Index", new { pagina = Model.TotalPaginas },
+                    new { @class = "btn btn-sm btn-default disabled" })
+}

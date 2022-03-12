@@ -10,7 +10,7 @@ namespace Evaluacion.Despacho.FRONT.Models
         /// <summary>
         /// Cantidad de registros a obtener
         /// </summary>
-        public int NumRegistros { get; set; }
+        public int NumRegistros { get { return 1; } }
 
         /// <summary>
         /// Página a consultar
