@@ -1,0 +1,76 @@
+﻿@model Evaluacion.Despacho.FRONT.Models.EmpleadoModel
+
+
+        <form asp-action="Crear">
+
+            <div id="modalCrear" class="modal" tabindex="-1" role="dialog">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+
+                        <div class="modal-header">
+
+                            <h5 class="modal-title">Registrar un nuevo empleado</h5>
+
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+
+                                <span aria-hidden="true">&times;</span>
+
+                            </button>
+
+                        </div>
+
+                        <div class="modal-body">
+                            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                            <div class="form-group">
+                                <label asp-for="Nombre" class="control-label"></label>
+                                <input asp-for="Nombre" class="form-control" />
+                                <span asp-validation-for="Nombre" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="ApellidoPaterno" class="control-label"></label>
+                                <input asp-for="ApellidoPaterno" class="form-control" />
+                                <span asp-validation-for="ApellidoPaterno" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="ApellidoMaterno" class="control-label"></label>
+                                <input asp-for="ApellidoMaterno" class="form-control" />
+                                <span asp-validation-for="ApellidoMaterno" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="FechaNacimiento" class="control-label"></label>
+                                <input asp-for="FechaNacimiento" class="form-control" />
+                                <span asp-validation-for="FechaNacimiento" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Rfc" class="control-label"></label>
+                                <input asp-for="Rfc" class="form-control" />
+                                <span asp-validation-for="Rfc" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Direccion" class="control-label"></label>
+                                <input asp-for="Direccion" class="form-control" />
+                                <span asp-validation-for="Direccion" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Email" class="control-label"></label>
+                                <input asp-for="Email" class="form-control" />
+                                <span asp-validation-for="Email" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Telefono" class="control-label"></label>
+                                <input asp-for="Telefono" class="form-control" />
+                                <span asp-validation-for="Telefono" class="text-danger"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <input type="submit" value="Create" class="btn btn-primary" />
+                            </div>
+
+                        </div>
+                     </div>
+
+                </div>
+
+            </div>
+        </form>

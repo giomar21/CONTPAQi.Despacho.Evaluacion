@@ -27,6 +27,9 @@ namespace Evaluacion.Despacho.FRONT
             services.AddControllersWithViews();
 
             services.AddScoped<IEmpleadoService, EmpleadoService>();
+            services.AddScoped<IPuestoService, PuestoService>();
+            services.AddScoped<IGeneroService, GeneroService>();
+            services.AddScoped<IEstadoCivilService, EstadoCivilService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

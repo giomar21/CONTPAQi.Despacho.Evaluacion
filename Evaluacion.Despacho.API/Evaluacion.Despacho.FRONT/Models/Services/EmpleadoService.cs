@@ -20,7 +20,6 @@ namespace Evaluacion.Despacho.FRONT.Models.Services
 
         public async Task<ResponseEmpleadoModel> Get(EmpleadoFiltro filtro)
         {
-
             try
             {
                 string urlBase = _configuration["URL_API"];
@@ -33,6 +32,21 @@ namespace Evaluacion.Despacho.FRONT.Models.Services
                 return new ResponseEmpleadoModel();
             }
            
+        }
+
+        public async Task Create(EmpleadoModel empleado)
+        {
+
+            try
+            {
+                string urlBase = _configuration["URL_API"];
+                string urlConsulta = $"{urlBase}/Empleado";
+                var rRquest = await RestClientHelper.JsonRequest<object, EmpleadoModel>(empleado, urlConsulta, ContentType.JSON, HTTPMethods.Post);
+            }
+            catch
+            {
+                
+            }
         }
     }
 }

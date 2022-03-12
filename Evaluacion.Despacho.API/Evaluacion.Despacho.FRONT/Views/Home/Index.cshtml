@@ -9,7 +9,10 @@
 <br />
 
 <p>
-    <button asp-action="Create" class="btn btn-primary">Crear</button>
+    @*<a asp-action="Create" class="btn btn-primary">Crear</a>*@
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalCrear">Crear</button>
+    <a asp-action="Search" class="btn btn-primary">Buscar</a>
+    <a asp-action="Refresh" class="btn btn-primary">Actualizar</a>
 </p>
 <table class="table">
     <thead>
@@ -54,13 +57,96 @@
                     @Html.DisplayFor(modelItem => item.FechaAlta)
                 </td>
                 <td>
-                    <button asp-action="Update" class="btn btn-sm btn-primary">Editar</button> |
+                    <button asp-action="Update" class="btn btn-sm btn-primary">Editar</button>
                     <button asp-action="Delete" class="btn btn-sm btn-danger">Eliminar</button>
                 </td>
             </tr>
         }
     </tbody>
 </table>
+
+<form asp-action="Crear">
+
+    <div id="modalCrear" class="modal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+
+                <div class="modal-header">
+
+                    <h5 class="modal-title">Registrar un nuevo empleado</h5>
+
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+
+                        <span aria-hidden="true">&times;</span>
+
+                    </button>
+
+                </div>
+
+                <div class="modal-body">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                    <div class="form-group">
+                        <label asp-for="@Model.Empleado.Nombre" class="control-label"></label>
+                        <input asp-for="@Model.Empleado.Nombre" class="form-control" />
+                        <span asp-validation-for="@Model.Empleado.Nombre" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="@Model.Empleado.ApellidoPaterno" class="control-label"></label>
+                        <input asp-for="@Model.Empleado.ApellidoPaterno" class="form-control" />
+                        <span asp-validation-for="@Model.Empleado.ApellidoPaterno" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="@Model.Empleado.ApellidoMaterno" class="control-label"></label>
+                        <input asp-for="@Model.Empleado.ApellidoMaterno" class="form-control" />
+                        <span asp-validation-for="@Model.Empleado.ApellidoMaterno" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="@Model.Empleado.FechaNacimiento" class="control-label"></label>
+                        <input asp-for="@Model.Empleado.FechaNacimiento" class="form-control" />
+                        <span asp-validation-for="@Model.Empleado.FechaNacimiento" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="@Model.Empleado.Rfc" class="control-label"></label>
+                        <input asp-for="@Model.Empleado.Rfc" class="form-control" />
+                        <span asp-validation-for="@Model.Empleado.Rfc" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="@Model.Empleado.Direccion" class="control-label"></label>
+                        <input asp-for="@Model.Empleado.Direccion" class="form-control" />
+                        <span asp-validation-for="@Model.Empleado.Direccion" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="@Model.Empleado.Email" class="control-label"></label>
+                        <input asp-for="@Model.Empleado.Email" class="form-control" />
+                        <span asp-validation-for="@Model.Empleado.Email" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="@Model.Empleado.Telefono" class="control-label"></label>
+                        <input asp-for="@Model.Empleado.Telefono" class="form-control" />
+                        <span asp-validation-for="@Model.Empleado.Telefono" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        @Html.DropDownListFor(x => @Model.Empleado.Puesto.IdPuesto, new SelectList(@Model.Empleado.ListPuesto, "IdPuesto", "Descripcion"), htmlAttributes: new { @class = "form-control", id = "Puesto" })
+                    </div>
+                    <div class="form-group">
+                        @Html.DropDownListFor(x => @Model.Empleado.EstadoCivil.IdEstadoCivil, new SelectList(@Model.Empleado.ListEstadoCivil, "IdEstadoCivil", "Descripcion"), htmlAttributes: new { @class = "form-control", id = "Estado Civil" })
+                    </div>
+                    <div class="form-group">
+                        @Html.DropDownListFor(x => @Model.Empleado.Genero.IdGenero, new SelectList(@Model.Empleado.ListGenero, "IdGenero", "Descripcion"), htmlAttributes: new { @class = "form-control", id = "Género" })
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="Create" class="btn btn-primary" />
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</form>
+
 
 @if (Model.Empleados.Count() > 0)
 {

@@ -8,10 +8,12 @@ namespace Evaluacion.Despacho.FRONT.Models
     public class ResponseEmpleadoModel
     {
         private List<EmpleadoModel> _empleados;
+        private EmpleadoModel _model;
 
         public ResponseEmpleadoModel()
         {
             this._empleados = new List<EmpleadoModel>();
+            this._model = new EmpleadoModel();
         }
 
         public List<EmpleadoModel> Empleados
@@ -31,5 +33,17 @@ namespace Evaluacion.Despacho.FRONT.Models
         public int PaginaActual { get; set; }
 
         public int TotalPaginas { get; set; }
+
+        public EmpleadoModel Empleado
+        {
+            get
+            {
+                return this._model;
+            }
+            set
+            {
+                this._model = value;
+            }
+        }
     }
 }

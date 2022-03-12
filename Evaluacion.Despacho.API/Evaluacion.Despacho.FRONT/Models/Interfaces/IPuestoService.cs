@@ -5,10 +5,8 @@ using System.Threading.Tasks;
 
 namespace Evaluacion.Despacho.FRONT.Models.Interfaces
 {
-    public interface IEmpleadoService
+    public interface IPuestoService
     {
-        Task<ResponseEmpleadoModel> Get(EmpleadoFiltro filtro);
-
-        Task Create(EmpleadoModel empleado);
+        Task<List<PuestoModel>> Get();
     }
 }
