@@ -43,13 +43,25 @@ namespace Evaluacion.Despacho.FRONT.Controllers
             return View(rEmpleados);
         }
 
-        public async Task Crear(EmpleadoModel empleado)
+        public async Task<IActionResult> Crear(EmpleadoModel empleado)
         {
+            //if (!ModelState.IsValid)
+            //{
+            //    return View(empleado);
+            //}
+
             await _empleadoService.Create(empleado);
 
             var rEmpleados = await GetEmpleados(1);
 
-            RedirectToAction("Index", rEmpleados);
+            return View("Index", rEmpleados);
+        }
+
+        public async Task<IActionResult> Refresh()
+        {
+            var rEmpleados = await GetEmpleados(1);
+
+            return View("Index", rEmpleados);
         }
 
         public IActionResult Register()

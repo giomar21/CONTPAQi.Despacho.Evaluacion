@@ -82,6 +82,7 @@ namespace Evaluacion.Despacho.DATA.Services
                 result.TotalRegistros = query.Count();
 
                 var lEmpleados = query
+                    .OrderByDescending(s => s.Empleado.FechaAlta)
                     .Skip((filtro.NumPagina - 1) * filtro.NumRegistros)
                     .Take(filtro.NumRegistros)
                     .ToList();
