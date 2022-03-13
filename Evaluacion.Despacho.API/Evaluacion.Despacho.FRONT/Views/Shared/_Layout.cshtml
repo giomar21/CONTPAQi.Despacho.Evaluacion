@@ -86,22 +86,16 @@
                     }).fail(function (err, textstatus, error) {
                         console.err("Error > ", err);
                     });
-                }
+                });
 
 
             });
         });
 
-
-
-
-
         $(document).on("click", ".modalDelete", function () {
-            var passedID = $(this).data('id');
-            $(".modal-body .idEmpleado_").val(passedID);
+            var empleadoID = $(this).data('id');
+            $(".modal-body #idEmpleadoDelete").val(empleadoID);
         });
-
-
 
     </script>
 
