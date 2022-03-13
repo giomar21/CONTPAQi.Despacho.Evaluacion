@@ -61,6 +61,21 @@ namespace Evaluacion.Despacho.FRONT.Controllers
             return RedirectToAction("Index", rEmpleados);
         }
 
+        public async Task<IActionResult> Editar(EmpleadoModel empleado)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(empleado);
+            }
+            var filtro = new EmpleadoFiltro() { NumPagina = 1, Estatus = true };
+
+            await _empleadoService.Update(empleado);
+
+            var rEmpleados = await GetEmpleados(filtro);
+
+            return RedirectToAction("Index", rEmpleados);
+        }
+
         public async Task<IActionResult> Delete(EmpleadoModel empleado)
         {
             var filtro = new EmpleadoFiltro() { NumPagina = 1, Estatus = true };

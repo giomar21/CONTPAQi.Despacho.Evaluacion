@@ -98,7 +98,7 @@ namespace Evaluacion.Despacho.DATA.Services
                     FechaNacimiento = s.Empleado.FechaNacimiento,
                     Nombre = s.Empleado.Nombre,
                     Rfc = s.Empleado.Rfc,
-                    Telefono = s.Empleado.Telefono,
+                    Telefono = string.IsNullOrWhiteSpace(s.Empleado.Telefono) ? string.Empty : s.Empleado.Telefono.Trim(),
                     EstadoCivil = new EstadoCivilModel() 
                     { 
                         IdEstadoCivil = s.EstadoCivil.IdEstadoCivil,

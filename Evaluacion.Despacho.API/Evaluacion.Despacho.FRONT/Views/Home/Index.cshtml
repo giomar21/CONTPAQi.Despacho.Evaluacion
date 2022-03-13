@@ -56,7 +56,21 @@
                     @Html.DisplayFor(modelItem => item.FechaAlta)
                 </td>
                 <td>
-                    <button asp-action="Update" class="btn btn-sm btn-primary">Editar</button>
+                    <button type="button" class="btn btn-sm btn-primary modalEditar" data-toggle="modal" data-target="#modalEditar" 
+                            data-idEmpleadoEditar="@item.IdEmpleado"
+                            data-nombreEmpleadoEditar="@item.Nombre"
+                            data-apellidoPaternoEmpleadoEditar="@item.ApellidoPaterno"
+                            data-apellidoMaternoEmpleadoEditar="@item.ApellidoMaterno"
+                            data-fechaNacimientoEmpleadoEditar="@item.FechaNacimiento"
+                            data-rfcEmpleadoEditar="@item.Rfc"
+                            data-direccionEmpleadoEditar="@item.Direccion"
+                            data-emailEmpleadoEditar="@item.Email"
+                            data-telefonoEmpleadoEditar="@item.Telefono"
+                            data-idPuestoEmpleadoEditar="@item.Puesto.IdPuesto"
+                            data-idEstadoCivilEmpleadoEditar="@item.EstadoCivil.IdEstadoCivil"
+                            data-idGeneroEmpleadoEditar="@item.Genero.IdGenero">
+                    Editar
+                    </button>
 
                     <button type="button" class="btn btn-sm btn-danger modalDelete" data-toggle="modal" data-target="#modalDelete" data-id="@item.IdEmpleado" id="@item.IdEmpleado">Eliminar</button>
                 </td>
@@ -128,7 +142,7 @@
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label asp-for="@Model.Empleado.Direccion" class="control-label"></label>
+                                <label class="control-label">Dirección</label>
                                 <input asp-for="@Model.Empleado.Direccion" class="form-control" />
                                 <span asp-validation-for="@Model.Empleado.Direccion" class="text-danger"></span>
                             </div>
@@ -144,20 +158,22 @@
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label asp-for="@Model.Empleado.Telefono" class="control-label"></label>
+                                <label class="control-label">Teléfono</label>
                                 <input asp-for="@Model.Empleado.Telefono" class="form-control" />
-                                <span asp-validation-for="@Model.Empleado.Telefono" class="text-danger"></span>           
+                                <span asp-validation-for="@Model.Empleado.Telefono" class="text-danger"></span>
                             </div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
+                                <label class="control-label">Puesto</label>
                                 @Html.DropDownListFor(x => @Model.Empleado.Puesto.IdPuesto, new SelectList(@Model.Empleado.ListPuesto, "IdPuesto", "Descripcion", "-- Seleccione Puesto --"), htmlAttributes: new { @class = "form-control", id = "IdPuesto" })
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
+                                <label class="control-label">Estado Civil</label>
                                 @Html.DropDownListFor(x => @Model.Empleado.EstadoCivil.IdEstadoCivil, new SelectList(@Model.Empleado.ListEstadoCivil, "IdEstadoCivil", "Descripcion", "-- Seleccione Estado Civil --"), htmlAttributes: new { @class = "form-control", id = "IdEstadoCivil" })
                             </div>
                         </div>
@@ -165,6 +181,7 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
+                                <label class="control-label">Género</label>
                                 @Html.DropDownListFor(x => @Model.Empleado.Genero.IdGenero, new SelectList(@Model.Empleado.ListGenero, "IdGenero", "Descripcion", "-- Seleccione Género --"), htmlAttributes: new { @class = "form-control", id = "IdGenero" })
                             </div>
                         </div>
@@ -176,6 +193,135 @@
                     <div class="form-group">
 
                         <input type="submit" value="Aceptar" class="btn btn-primary" id="btnCrearEmpleado" />
+
+                        <input type="button" value="Cancelar" class="btn btn-danger" data-dismiss="modal" aria-label="Close">
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</form>
+
+<form asp-action="Editar" id="formEditar">
+
+    <div id="modalEditar" class="modal" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-xl" role="document">
+            <div class="modal-content">
+
+                <div class="modal-header">
+
+                    <h5 class="modal-title">Editar empleado</h5>
+
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+
+                        <span aria-hidden="true">&times;</span>
+
+                    </button>
+
+                </div>
+
+                <div class="modal-body">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                    <input type="hidden" asp-for="@Model.Empleado.IdEmpleado" class="form-control" id="idEmpleado" />
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label asp-for="@Model.Empleado.Nombre" class="control-label"></label>
+                                <input asp-for="@Model.Empleado.Nombre" class="form-control" id="nombreEmpleado" readonly/>
+                                <span asp-validation-for="@Model.Empleado.Nombre" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label asp-for="@Model.Empleado.ApellidoPaterno" class="control-label"></label>
+                                <input asp-for="@Model.Empleado.ApellidoPaterno" class="form-control" id="apellidoPaternoEmpleado" readonly/>
+                                <span asp-validation-for="@Model.Empleado.ApellidoPaterno" class="text-danger"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label asp-for="@Model.Empleado.ApellidoMaterno" class="control-label"></label>
+                                <input asp-for="@Model.Empleado.ApellidoMaterno" class="form-control" id="apellidoMaternoEmpleado" readonly/>
+                                <span asp-validation-for="@Model.Empleado.ApellidoMaterno" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label asp-for="@Model.Empleado.FechaNacimiento" class="control-label"></label>
+                                <input asp-for="@Model.Empleado.FechaNacimiento" class="form-control" id="fechaNacimientoEmpleado" readonly />
+                                <span asp-validation-for="@Model.Empleado.FechaNacimiento" class="text-danger"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label asp-for="@Model.Empleado.Rfc" class="control-label"></label>
+                                <input asp-for="@Model.Empleado.Rfc" class="form-control" id="rfcEmpleado" readonly/>
+                                <span asp-validation-for="@Model.Empleado.Rfc" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="control-label">Dirección</label>
+                                <input asp-for="@Model.Empleado.Direccion" class="form-control" id="direccionEmpleado" />
+                                <span asp-validation-for="@Model.Empleado.Direccion" class="text-danger"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label asp-for="@Model.Empleado.Email" class="control-label"></label>
+                                <input asp-for="@Model.Empleado.Email" class="form-control" id="emailEmpleado"/>
+                                <span asp-validation-for="@Model.Empleado.Email" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="control-label">Teléfono</label>
+                                <input asp-for="@Model.Empleado.Telefono" class="form-control" id="telefonoEmpleado" />
+                                <span asp-validation-for="@Model.Empleado.Telefono" class="text-danger"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="control-label">Puesto</label>
+                                @Html.DropDownListFor(x => @Model.Empleado.Puesto.IdPuesto, new SelectList(@Model.Empleado.ListPuesto, "IdPuesto", "Descripcion", @Model.Empleado.Puesto.Descripcion), htmlAttributes: new { @class = "form-control", id = "idPuestoEmpleado" })
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="control-label">Estado Civil</label>
+                                @Html.DropDownListFor(x => @Model.Empleado.EstadoCivil.IdEstadoCivil, new SelectList(@Model.Empleado.ListEstadoCivil, "IdEstadoCivil", "Descripcion", @Model.Empleado.EstadoCivil.Descripcion), htmlAttributes: new { @class = "form-control", id = "idEstadoCivilEmpleado" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="control-label">Género</label>
+                                <span asp-validation-for="@Model.Empleado.Genero.Descripcion" class="text-danger"></span>
+                                @Html.DropDownListFor(x => @Model.Empleado.Genero.IdGenero, new SelectList(@Model.Empleado.ListGenero, "IdGenero", "Descripcion", @Model.Empleado.Genero.Descripcion), htmlAttributes: new { @class = "form-control", id = "idGeneroEmpleado", @readonly = "readonly", @disabled = "disabled " })
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+
+                        <input type="submit" value="Aceptar" class="btn btn-primary" id="btnEditarEmpleado" />
 
                         <input type="button" value="Cancelar" class="btn btn-danger" data-dismiss="modal" aria-label="Close">
                     </div>

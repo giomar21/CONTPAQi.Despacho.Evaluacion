@@ -29,10 +29,22 @@
             </div>
         </nav>
     </header>
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-1">
+
+            </div>
+            <div class="col-md-10">
+                <main role="main" class="pb-3">
+                    @RenderBody()
+                </main>
+            </div>
+            <div class="col-md-1">
+
+            </div>
+
+        </div>
+       
     </div>
 
     <footer class="border-top footer text-muted">
@@ -49,14 +61,6 @@
 
 
     <script type="text/javascript">
-        //$("#formCrear").submit(function (e) {
-        //    e.preventDefault();
-        //});
-
-        //$("#btnCrearEmpleado").click(function () {
-        //    $("#formCrear").submit(); // Submit the form
-        //});
-
 
         $(document).ready(function () {
             $('#formCrear').on('submit', function (event) {
@@ -64,7 +68,7 @@
 
                 let dataEmpleado = $(this).serializeArray();
 
-                let url = "Home/Crear";
+                let url = "/Home/Crear";
 
                 var promise = $.ajax({
                     method: "POST",
@@ -74,17 +78,17 @@
                     $('#modalCrear').modal('hide');
                     $("#formCrear").trigger("reset");
                 }).fail(function (err, textstatus, error) {
-                    console.err("Error > ", err);
+             
                 });
 
                 promise.then(function () {
                     $.ajax({
                         method: "POST",
-                        url: "Home/Refresh",
+                        url: "/Home/Refresh",
                         data: {}
                     }).done(function (msg) {
                     }).fail(function (err, textstatus, error) {
-                        console.err("Error > ", err);
+         
                     });
                 });
 
@@ -95,6 +99,78 @@
         $(document).on("click", ".modalDelete", function () {
             var empleadoID = $(this).data('id');
             $(".modal-body #idEmpleadoDelete").val(empleadoID);
+        });
+
+
+        $(document).ready(function () {
+            $('#formEditar').on('submit', function (event) {
+                event.preventDefault();
+
+                let dataEmpleado = $(this).serializeArray();
+
+                let url = "/Home/Editar";
+
+                var promise = $.ajax({
+                    method: "POST",
+                    url: url,
+                    data: dataEmpleado
+                }).done(function (msg) {
+                    $('#modalEditar').modal('hide');
+                    $("#formEditar").trigger("reset");
+                }).fail(function (err, textstatus, error) {
+                   
+                });
+
+                promise.then(function () {
+                    $.ajax({
+                        method: "POST",
+                        url: "/Home/Refresh",
+                        data: {}
+                    }).done(function (msg) {
+                    }).fail(function (err, textstatus, error) {
+                       
+                    });
+                });
+
+
+            });
+        });
+
+        $(document).on("click", ".modalEditar", function () {
+            var empleadoID = $(this).attr("data-idEmpleadoEditar");
+            var empleadoNombre = $(this).attr('data-nombreEmpleadoEditar');
+            var empleadoApellidoPaterno = $(this).attr('data-apellidoPaternoEmpleadoEditar');
+            var empleadoApellidoMaterno = $(this).attr('data-apellidoMaternoEmpleadoEditar');
+            var empleadoFechaNacimiento = $(this).attr("data-fechaNacimientoEmpleadoEditar");
+            var empleadoRFC = $(this).attr("data-rfcEmpleadoEditar");
+            var empleadoDireccion = $(this).attr("data-direccionEmpleadoEditar");
+
+            var empleadoEmail= $(this).attr("data-emailEmpleadoEditar");
+            var empleadoTelefono = $(this).attr("data-telefonoEmpleadoEditar");
+            var empleadoIdPuesto = $(this).attr("data-idPuestoEmpleadoEditar");
+            var empleadoIdEstadoCivil = $(this).attr("data-idEstadoCivilEmpleadoEditar");
+            var empleadoIdGenero = $(this).attr("data-idGeneroEmpleadoEditar");
+          
+            var arrayFechas = empleadoFechaNacimiento.split(" ");
+            var arrayFecha = arrayFechas[0].split("/");
+            if (arrayFecha[1].length == 1) arrayFecha[1] = '0' + arrayFecha[1];
+            if (arrayFecha[0].length == 1) arrayFecha[0] = '0' + arrayFecha[1];
+
+            var fechaFormateada = arrayFecha[2] + '-' + arrayFecha[1] + '-' + arrayFecha[0] + 'T00:00';
+
+            $(".modal-body #idEmpleado").val(empleadoID);
+            $(".modal-body #nombreEmpleado").val(empleadoNombre);
+            $(".modal-body #apellidoPaternoEmpleado").val(empleadoApellidoPaterno);
+            $(".modal-body #apellidoMaternoEmpleado").val(empleadoApellidoMaterno);
+            $(".modal-body #fechaNacimientoEmpleado").val(fechaFormateada);
+            $(".modal-body #rfcEmpleado").val(empleadoRFC);
+            $(".modal-body #direccionEmpleado").val(empleadoDireccion);
+
+            $(".modal-body #emailEmpleado").val(empleadoEmail);
+            $(".modal-body #telefonoEmpleado").val(empleadoTelefono);
+            $(".modal-body #idPuestoEmpleado").val(empleadoIdPuesto);
+            $(".modal-body #idEstadoCivilEmpleado").val(empleadoIdEstadoCivil);
+            $(".modal-body #idGeneroEmpleado").val(empleadoIdGenero);
         });
 
     </script>

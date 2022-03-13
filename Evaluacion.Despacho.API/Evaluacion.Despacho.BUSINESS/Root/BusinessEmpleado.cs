@@ -35,7 +35,7 @@ namespace Evaluacion.Despacho.BUSINESS.Root
                     FechaNacimiento = empleado.FechaNacimiento,
                     Nombre = empleado.Nombre,
                     Rfc = empleado.Rfc,
-                    Telefono = empleado.Telefono,
+                    Telefono = string.IsNullOrWhiteSpace(empleado.Telefono) ? string.Empty : empleado.Telefono.Trim(),
                     FechaAlta = DateTime.Now,
                     IdEstadoCivil = empleado.EstadoCivil.IdEstadoCivil,
                     IdGenero = empleado.Genero.IdGenero,
