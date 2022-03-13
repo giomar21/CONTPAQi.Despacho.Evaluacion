@@ -62,6 +62,7 @@
                             data-apellidoPaternoEmpleadoEditar="@item.ApellidoPaterno"
                             data-apellidoMaternoEmpleadoEditar="@item.ApellidoMaterno"
                             data-fechaNacimientoEmpleadoEditar="@item.FechaNacimiento"
+                            data-fechaBajaEmpleadoEditar="@item.FechaBaja"
                             data-rfcEmpleadoEditar="@item.Rfc"
                             data-direccionEmpleadoEditar="@item.Direccion"
                             data-emailEmpleadoEditar="@item.Email"
@@ -315,7 +316,11 @@
                             </div>
                         </div>
                         <div class="col-md-6">
-
+                            <div class="form-group">
+                                <label asp-for="@Model.Empleado.FechaBaja" class="control-label"></label>
+                                <input asp-for="@Model.Empleado.FechaBaja" class="form-control" id="fechaBajaEmpleado" />
+                                <span asp-validation-for="@Model.Empleado.FechaBaja" class="text-danger"></span>
+                            </div>
                         </div>
                     </div>
 

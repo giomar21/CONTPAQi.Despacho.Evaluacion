@@ -142,6 +142,7 @@
             var empleadoApellidoPaterno = $(this).attr('data-apellidoPaternoEmpleadoEditar');
             var empleadoApellidoMaterno = $(this).attr('data-apellidoMaternoEmpleadoEditar');
             var empleadoFechaNacimiento = $(this).attr("data-fechaNacimientoEmpleadoEditar");
+            var empleadoFechaBaja = $(this).attr("data-fechaBajaEmpleadoEditar");
             var empleadoRFC = $(this).attr("data-rfcEmpleadoEditar");
             var empleadoDireccion = $(this).attr("data-direccionEmpleadoEditar");
 
@@ -155,22 +156,30 @@
             var arrayFecha = arrayFechas[0].split("/");
             if (arrayFecha[1].length == 1) arrayFecha[1] = '0' + arrayFecha[1];
             if (arrayFecha[0].length == 1) arrayFecha[0] = '0' + arrayFecha[1];
-
             var fechaFormateada = arrayFecha[2] + '-' + arrayFecha[1] + '-' + arrayFecha[0] + 'T00:00';
 
             $(".modal-body #idEmpleado").val(empleadoID);
             $(".modal-body #nombreEmpleado").val(empleadoNombre);
             $(".modal-body #apellidoPaternoEmpleado").val(empleadoApellidoPaterno);
             $(".modal-body #apellidoMaternoEmpleado").val(empleadoApellidoMaterno);
-            $(".modal-body #fechaNacimientoEmpleado").val(fechaFormateada);
+            $(".modal-body #fechaNacimientoEmpleado").val(fechaFormateada);          
             $(".modal-body #rfcEmpleado").val(empleadoRFC);
             $(".modal-body #direccionEmpleado").val(empleadoDireccion);
-
             $(".modal-body #emailEmpleado").val(empleadoEmail);
             $(".modal-body #telefonoEmpleado").val(empleadoTelefono);
             $(".modal-body #idPuestoEmpleado").val(empleadoIdPuesto);
             $(".modal-body #idEstadoCivilEmpleado").val(empleadoIdEstadoCivil);
             $(".modal-body #idGeneroEmpleado").val(empleadoIdGenero);
+            $(".modal-body #fechaBajaEmpleado").val(empleadoFechaBaja);
+
+            if (!(empleadoFechaBaja == "" || empleadoFechaBaja == null || empleadoFechaBaja == undefined)) {
+                var arrayBajaFechas = empleadoFechaBaja.split(" ");
+                var arrayBajaFecha = arrayBajaFechas[0].split("/");
+                if (arrayBajaFecha[1].length == 1) arrayBajaFecha[1] = '0' + arrayBajaFecha[1];
+                if (arrayBajaFecha[0].length == 1) arrayBajaFecha[0] = '0' + arrayBajaFecha[1];
+                var fechaBajaFormateada = arrayBajaFecha[2] + '-' + arrayBajaFecha[1] + '-' + arrayBajaFecha[0] + 'T00:00';
+                $(".modal-body #fechaBajaEmpleado").val(fechaBajaFormateada);
+            }
         });
 
     </script>
