@@ -77,21 +77,21 @@
                 }).done(function (msg) {
                     $('#modalCrear').modal('hide');
                     $("#formCrear").trigger("reset");
+                    location.reload();
                 }).fail(function (err, textstatus, error) {
-             
+                    //location.reload();
                 });
 
-                promise.then(function () {
-                    $.ajax({
-                        method: "POST",
-                        url: "/Home/Refresh",
-                        data: {}
-                    }).done(function (msg) {
-                    }).fail(function (err, textstatus, error) {
+                //promise.then(function () {
+                //    $.ajax({
+                //        method: "POST",
+                //        url: "/Home/Refresh",
+                //        data: {}
+                //    }).done(function (msg) {
+                //    }).fail(function (err, textstatus, error) {
          
-                    });
-                });
-
+                //    });
+                //});
 
             });
         });
@@ -117,21 +117,22 @@
                 }).done(function (msg) {
                     $('#modalEditar').modal('hide');
                     $("#formEditar").trigger("reset");
+                    location.reload();
                 }).fail(function (err, textstatus, error) {
-                   
+                    //location.reload();
                 });
 
-                promise.then(function () {
-                    $.ajax({
-                        method: "POST",
-                        url: "/Home/Refresh",
-                        data: {}
-                    }).done(function (msg) {
-                    }).fail(function (err, textstatus, error) {
-                       
-                    });
-                });
-
+                //promise.then(function () {
+                //    $.ajax({
+                //        method: "POST",
+                //        url: "/Home/Refresh",
+                //        data: {}
+                //    }).done(function (msg) {
+                //        location.reload();
+                //    }).fail(function (err, textstatus, error) {
+                //        location.reload();
+                //    });
+                //});
 
             });
         });
