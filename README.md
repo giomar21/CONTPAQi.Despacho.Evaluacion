@@ -23,6 +23,8 @@ La solución está compuesta por 5 proyectos, de las cuales 4 son del Backend (A
 Dentro del proyecto **Evaluacion.Despacho.FRONT** se encuentra el archivo de configuración ***appsettings.json***, en la cual viene la url base (URL_API) que apunta a la API, actualmente esta tiene la ruta y puerto: http://localhost:51337.
 En caso de que esta cambie, en el atributo **URL_API** se puede cambiar.
 
+Dentro del proyecto **Evaluacion.Despacho.API** se encuentra el archivo de configuración ***appsettings.json***, en la cual viene el nodo **ConnectionStrings** con el atributo **DespachoDB** donde se podrá poner la cadena de conexión donde se encuentra la base de datos.
+
 # Herramientas/Tecnologías
 - Desarrollado con Visual Studio 2019
 - Base de datos SQL Server 2019
